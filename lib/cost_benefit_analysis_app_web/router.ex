@@ -18,6 +18,7 @@ defmodule CostBenefitAnalysisAppWeb.Router do
 
     get "/", PageController, :index
     resources "/analyses", AnalysisController
+    resources "/plans", PlanController
     resources "/benefits", BenefitController
     resources "/costs", CostController
   end

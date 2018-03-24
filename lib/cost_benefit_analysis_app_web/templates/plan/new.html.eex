@@ -1,0 +1,5 @@
+<h2>New Plan</h2>
+
+<%= render "form.html", Map.put(assigns, :action, plan_path(@conn, :create)) %>
+
+<span><%= link "Back", to: plan_path(@conn, :index) %></span>
