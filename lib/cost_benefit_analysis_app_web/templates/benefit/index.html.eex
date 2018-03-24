@@ -1,0 +1,26 @@
+<h2>Listing Benefits</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for benefit <- @benefits do %>
+    <tr>
+      <td><%= benefit.name %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: benefit_path(@conn, :show, benefit), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: benefit_path(@conn, :edit, benefit), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: benefit_path(@conn, :delete, benefit), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Benefit", to: benefit_path(@conn, :new) %></span>

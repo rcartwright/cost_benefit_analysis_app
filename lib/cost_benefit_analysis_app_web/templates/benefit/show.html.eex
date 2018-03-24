@@ -1,0 +1,13 @@
+<h2>Show Benefit</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @benefit.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: benefit_path(@conn, :edit, @benefit) %></span>
+<span><%= link "Back", to: benefit_path(@conn, :index) %></span>
