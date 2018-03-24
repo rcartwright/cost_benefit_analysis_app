@@ -19,6 +19,7 @@ defmodule CostBenefitAnalysisAppWeb.Router do
     get "/", PageController, :index
     resources "/analyses", AnalysisController
     resources "/benefits", BenefitController
+    resources "/costs", CostController
   end
 
   # Other scopes may use custom stacks.

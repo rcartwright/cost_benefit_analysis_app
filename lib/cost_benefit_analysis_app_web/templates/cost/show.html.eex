@@ -1,0 +1,13 @@
+<h2>Show Cost</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @cost.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: cost_path(@conn, :edit, @cost) %></span>
+<span><%= link "Back", to: cost_path(@conn, :index) %></span>
