@@ -1,0 +1,13 @@
+<h2>Show Analysis</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @analysis.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: analysis_path(@conn, :edit, @analysis) %></span>
+<span><%= link "Back", to: analysis_path(@conn, :index) %></span>

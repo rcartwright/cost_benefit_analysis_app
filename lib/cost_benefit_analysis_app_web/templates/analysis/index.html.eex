@@ -1,0 +1,26 @@
+<h2>Listing Analyses</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for analysis <- @analyses do %>
+    <tr>
+      <td><%= analysis.name %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: analysis_path(@conn, :show, analysis), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: analysis_path(@conn, :edit, analysis), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: analysis_path(@conn, :delete, analysis), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Analysis", to: analysis_path(@conn, :new) %></span>
