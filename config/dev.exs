@@ -51,7 +51,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :cost_benefit_analysis_app, CostBenefitAnalysisApp.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "meuser",
+  username: "postgres",
   password: "password1",
   database: "cost_benefit_analysis_app_dev",
   hostname: "localhost",
