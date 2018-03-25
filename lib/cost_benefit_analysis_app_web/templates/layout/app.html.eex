@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div  style="display: flex; height: 100%">
+    <div  style="display: flex; height: 100%; flex-direction: column;">
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

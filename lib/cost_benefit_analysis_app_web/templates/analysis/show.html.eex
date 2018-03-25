@@ -1,13 +1,14 @@
-<h2>Show Analysis</h2>
+<h1>Analysis:  <%= @analysis.name %></h1>
 
-<ul>
+<div style="display: flex; height: 100%">
+  <div class="plan-container">
+    <h2>Plan A</h2>
+  </div>
+  <div class="plan-container">
+    <h2>Plan B</h2>
+  </div>
+</div>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @analysis.name %>
-  </li>
 
-</ul>
-
-<span><%= link "Edit", to: analysis_path(@conn, :edit, @analysis) %></span>
-<span><%= link "Back", to: analysis_path(@conn, :index) %></span>
+<div><%= link "Edit", to: analysis_path(@conn, :edit, @analysis) %></div>
+<div><%= link "Back", to: analysis_path(@conn, :index) %></div>
