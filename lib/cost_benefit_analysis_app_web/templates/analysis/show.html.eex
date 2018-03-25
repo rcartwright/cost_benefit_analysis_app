@@ -1,17 +1,19 @@
 <h1>Analysis:  <%= @analysis.name %></h1>
-
+<span><%= link "New Plan", to: analysis_plan_path(@conn, :new, @analysis) %></span>
 <div style="display: flex; height: 100%">
-  <div class="plan-container">
-    <h2>Plan A</h2>
-    <span><%= link "New Plan", to: analysis_plan_path(@conn, :new, @analysis) %></span>
-    <%= for plan <- @analysis.plans do %>
-      <%= plan.name %>
-    <% end %>
-  </div>
-  <div class="plan-container">
-    <h2>Plan B</h2>
-  </div>
+  <%= for plan <- @analysis.plans do %>
+    <div class="plan-container">
+      <h2><%= plan.name %></h2>
+      <div>
+        <h3>Costs</h3>
+      </div>
+      <div>
+        <h3>Benefits</h3>
+      </div>
+    </div>
+  <% end %>
 </div>
+
 
 
 <div><%= link "Edit", to: analysis_path(@conn, :edit, @analysis) %></div>

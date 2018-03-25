@@ -1,8 +1,12 @@
 defmodule CostBenefitAnalysisAppWeb.PlanController do
   use CostBenefitAnalysisAppWeb, :controller
+  
 
   alias CostBenefitAnalysisApp.Plans
   alias CostBenefitAnalysisApp.Plans.Plan
+  alias CostBenefitAnalysisApp.Repo
+  alias CostBenefitAnalysisApp.Analyses.Analysis
+
 
   def index(conn, _params) do
     plans = Plans.list_plans()
@@ -14,8 +18,11 @@ defmodule CostBenefitAnalysisAppWeb.PlanController do
     render(conn, "new.html", changeset: changeset, analysis: analysis)
   end
 
-  def create(conn, %{"plan" => plan_params}) do
-    case Plans.create_plan(plan_params) do
+  def create(conn, %{"plan" => plan_params, "analysis_id" => analysis_id}) do
+   analysis = Repo.get(Analysis, analysis_id)
+   plan_changeset = Ecto.build_assoc(analysis, :plans, name: plan_params["name"])
+
+    case Repo.insert(plan_changeset) do
       {:ok, plan} ->
         conn
         |> put_flash(:info, "Plan created successfully.")
