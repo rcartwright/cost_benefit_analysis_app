@@ -17,8 +17,9 @@ defmodule CostBenefitAnalysisAppWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/analyses", AnalysisController
-    resources "/plans", PlanController
+    resources "/analyses", AnalysisController do
+      resources "/plans", PlanController
+    end
     resources "/benefits", BenefitController
     resources "/costs", CostController
   end

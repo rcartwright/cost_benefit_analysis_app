@@ -9,5 +9,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: plan_path(@conn, :edit, @plan) %></span>
-<span><%= link "Back", to: plan_path(@conn, :index) %></span>
+<span><%= link "Edit", to: analysis_plan_path(@conn, :edit, @plan) %></span>
+<span><%= link "Back", to: analysis_plan_path(@conn, :index, @analysis) %></span>
