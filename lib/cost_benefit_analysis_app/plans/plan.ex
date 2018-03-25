@@ -1,11 +1,11 @@
 defmodule CostBenefitAnalysisApp.Plans.Plan do
   use Ecto.Schema
   import Ecto.Changeset
-
+  alias CostBenefitAnalysisApp.Analyses.Analysis
 
   schema "plans" do
     field :name, :string
-
+    belongs_to :analysis, Analysis
     timestamps()
   end
 
