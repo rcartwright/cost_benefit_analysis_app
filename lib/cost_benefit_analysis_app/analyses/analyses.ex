@@ -35,7 +35,7 @@ defmodule CostBenefitAnalysisApp.Analyses do
       ** (Ecto.NoResultsError)
 
   """
-  def get_analysis!(id), do: Repo.get!(Analysis, id)
+  def get_analysis!(id), do: Repo.get!(Analysis, id) |> Repo.preload(:plans)
 
   @doc """
   Creates a analysis.

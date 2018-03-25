@@ -5,7 +5,7 @@ defmodule CostBenefitAnalysisApp.Analyses.Analysis do
 
   schema "analyses" do
     field :name, :string
-    has_many :plans, Plan
+    has_many :plans, CostBenefitAnalysisApp.Plans.Plan
     timestamps()
   end
 

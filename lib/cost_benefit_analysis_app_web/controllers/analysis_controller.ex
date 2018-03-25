@@ -27,6 +27,7 @@ defmodule CostBenefitAnalysisAppWeb.AnalysisController do
 
   def show(conn, %{"id" => id}) do
     analysis = Analyses.get_analysis!(id)
+    
     render(conn, "show.html", analysis: analysis)
   end
 

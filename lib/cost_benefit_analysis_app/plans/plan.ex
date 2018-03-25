@@ -17,6 +17,7 @@ defmodule CostBenefitAnalysisApp.Plans.Plan do
   def changeset(plan, attrs) do
     plan
     |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast_assoc(:analysis)
+    |> validate_required([:name, :analysis])
   end
 end

@@ -9,9 +9,9 @@ defmodule CostBenefitAnalysisAppWeb.PlanController do
     render(conn, "index.html", plans: plans)
   end
 
-  def new(conn, _params) do
+  def new(conn,  %{"analysis_id" => analysis}) do
     changeset = Plans.change_plan(%Plan{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, analysis: analysis)
   end
 
   def create(conn, %{"plan" => plan_params}) do
