@@ -1,1 +1,10 @@
 /* This file is for your main application css. */
+html, body {
+    height: 100%;
+}
+
+.plan-container {
+    border: 1px solid #000; 
+    flex: 1 1 50%; 
+    height: 100%;
+}
