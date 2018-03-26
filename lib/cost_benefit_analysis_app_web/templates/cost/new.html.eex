@@ -1,5 +1,3 @@
 <h2>New Cost</h2>
 
-<%= render "form.html", Map.put(assigns, :action, cost_path(@conn, :create)) %>
-
-<span><%= link "Back", to: cost_path(@conn, :index) %></span>
+<%= render "form.html", Map.put(assigns, :action, plan_cost_path(@conn, :create, @plan)) %>

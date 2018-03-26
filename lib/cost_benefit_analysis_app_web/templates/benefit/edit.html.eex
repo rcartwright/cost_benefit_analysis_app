@@ -1,5 +1,0 @@
-<h2>Edit Benefit</h2>
-
-<%= render "form.html", Map.put(assigns, :action, benefit_path(@conn, :update, @benefit)) %>
-
-<span><%= link "Back", to: benefit_path(@conn, :index) %></span>

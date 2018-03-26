@@ -8,11 +8,6 @@ defmodule CostBenefitAnalysisAppWeb.PlanController do
   alias CostBenefitAnalysisApp.Analyses.Analysis
 
 
-  def index(conn, _params) do
-    plans = Plans.list_plans()
-    render(conn, "index.html", plans: plans)
-  end
-
   def new(conn,  %{"analysis_id" => analysis}) do
     changeset = Plans.change_plan(%Plan{})
     render(conn, "new.html", changeset: changeset, analysis: analysis)

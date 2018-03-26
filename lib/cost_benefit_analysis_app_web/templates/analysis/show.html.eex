@@ -6,6 +6,7 @@
       <h2><%= plan.name %></h2>
       <div>
         <h3>Costs</h3>
+        <span><%= link "New Cost", to: plan_cost_path(@conn, :new, plan) %></span>
       </div>
       <div>
         <h3>Benefits</h3>
