@@ -7,6 +7,11 @@
       <div>
         <h3>Costs</h3>
         <span><%= link "New Cost", to: plan_cost_path(@conn, :new, plan) %></span>
+        <ul>
+        <%= for cost <- plan.costs do %>
+           <li><%= cost.name %></li>
+        <% end %>
+        </ul>
       </div>
       <div>
         <h3>Benefits</h3>

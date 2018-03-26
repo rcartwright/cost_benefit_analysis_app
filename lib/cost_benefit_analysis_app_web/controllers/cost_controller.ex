@@ -3,6 +3,8 @@ defmodule CostBenefitAnalysisAppWeb.CostController do
 
   alias CostBenefitAnalysisApp.Costs
   alias CostBenefitAnalysisApp.Costs.Cost
+  alias CostBenefitAnalysisApp.Plans.Plan
+  alias CostBenefitAnalysisApp.Repo
 
   def new(conn, %{"plan_id" => plan}) do
     changeset = Costs.change_cost(%Cost{})
@@ -10,7 +12,10 @@ defmodule CostBenefitAnalysisAppWeb.CostController do
   end
 
   def create(conn, %{"cost" => cost_params, "plan_id" => plan_id}) do
-    case Costs.create_cost(cost_params) do
+    plan = Repo.get(Plan, plan_id)
+    cost_changeset = Ecto.build_assoc(plan, :costs, name: cost_params["name"])
+
+    case Repo.insert(cost_changeset) do
       {:ok, cost} ->
         conn
         |> put_flash(:info, "Cost created successfully.")

@@ -35,7 +35,7 @@ defmodule CostBenefitAnalysisApp.Plans do
       ** (Ecto.NoResultsError)
 
   """
-  def get_plan!(id), do: Repo.get!(Plan, id)
+  def get_plan!(id), do: Repo.get!(Plan, id) |> Repo.preload(:costs)
 
   @doc """
   Creates a plan.
