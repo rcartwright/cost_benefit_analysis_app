@@ -4,7 +4,9 @@ html, body {
 }
 
 .plan-container {
-    border: 1px solid #000; 
+    border: 1px solid #e0e0e0; 
     flex: 1 1 50%; 
     height: 100%;
+    padding: 12px;
+    border-radius: 4px;
 }
