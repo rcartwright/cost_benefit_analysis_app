@@ -21,9 +21,11 @@ services:
     # The build parameters for this container.
     build: .
     volumes:
-      - ./lib:/app/lib # THE LIB FOLDER HAS NOTHING IN IT. NOT WORKING
+      - ./lib:/app/lib
+      - ./assets/css:/app/assets/css
+      - ./assets/js:/app/assets/js
     working_dir: /app
-    command: nodemon --watch lib --exec mix ecto.create && mix ecto.migrate && mix phx.server
+    command: nodemon --watch lib --watch assets/css --watch assets/js --exec mix ecto.create && mix ecto.migrate && mix phx.server
     environment:
       # Variables to connect to our Postgres server
       PGUSER: postgres
