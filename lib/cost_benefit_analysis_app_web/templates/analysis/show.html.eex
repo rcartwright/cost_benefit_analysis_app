@@ -1,15 +1,20 @@
 <h1>Analysis:  <%= @analysis.name %></h1>
-<span><%= link "New Plan", to: analysis_plan_path(@conn, :new, @analysis) %></span>
+<div class="nav-links">
+  <span><%= link "New Plan", class: "btn btn-info btn-xs", to: analysis_plan_path(@conn, :new, @analysis) %></span>
+  <span><%= link "Edit", class: "btn btn-info btn-xs", to: analysis_path(@conn, :edit, @analysis) %></span>
+  <span><%= link "Back", class: "btn btn-info btn-xs", to: analysis_path(@conn, :index) %></span>
+</div>
 <div style="display: flex; height: 100%">
   <%= for plan <- @analysis.plans do %>
     <div class="plan-container">
-      <h2><%= plan.name %></h2>
+    <h2><%= plan.name %></h2>
+    <div class="cost-benefit-container">
       <div>
         <h3>Costs</h3>
-        <span><%= link "New Cost", to: plan_cost_path(@conn, :new, plan) %></span>
+        <span><%= link "New Cost", class: "btn btn-info btn-xs", to: plan_cost_path(@conn, :new, plan) %></span>
         <ul>
         <%= for cost <- plan.costs do %>
-           <li><%= cost.name %></li>
+          <li><%= cost.name %></li>
         <% end %>
         </ul>
       </div>
@@ -17,10 +22,6 @@
         <h3>Benefits</h3>
       </div>
     </div>
+    </div>
   <% end %>
 </div>
-
-
-
-<div><%= link "Edit", to: analysis_path(@conn, :edit, @analysis) %></div>
-<div><%= link "Back", to: analysis_path(@conn, :index) %></div>
