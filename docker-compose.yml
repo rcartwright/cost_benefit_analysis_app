@@ -4,11 +4,26 @@ version: '3'
 # Containers we are going to run
 services:
   # Our Phoenix container
+  db:
+    # We use the predefined Postgres image
+    image: postgres:9.6
+    environment:
+      # Set user/password for Postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # Set a path where Postgres should store the data
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+# Define the volumes
   phoenix:
     # The build parameters for this container.
-    build:
-      # Here we define that it should build from the current directory
-      context: .
+    build: .
+    #volumes:
+    #  - //c/Users/rachel/sites/cost_benefit_analysis_app/lib:/app/lib # THE LIB FOLDER HAS NOTHING IN IT. NOT WORKING
+    working_dir: /
+    command: ls #nodemon --watch lib --exec mix ecto.create && mix ecto.migrate && mix phx.server
     environment:
       # Variables to connect to our Postgres server
       PGUSER: postgres
@@ -23,18 +38,5 @@ services:
     depends_on:
       # The db container needs to be started before we start this container
       - db
-  db:
-    # We use the predefined Postgres image
-    image: postgres:9.6
-    environment:
-      # Set user/password for Postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      # Set a path where Postgres should store the data
-      PGDATA: /var/lib/postgresql/data/pgdata
-    restart: always
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-# Define the volumes
 volumes:
   pgdata:
