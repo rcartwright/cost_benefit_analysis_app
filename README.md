@@ -11,6 +11,10 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
+# Docker 
+
+## If on Windows, make sure this is cloned somewhere inside your User directory so that the volume will work.
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
