@@ -1,4 +1,4 @@
 <h2>Edit Plan</h2>
 
-<%= render "form.html", Map.put(assigns, :action, analysis_plan_path(@conn, :update, @plan)) %>
+<%= render "form.html", Map.put(assigns, :action, plan_path(@conn, :update, @plan)) %>
 

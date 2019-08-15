@@ -40,12 +40,13 @@ defmodule CostBenefitAnalysisAppWeb.PlanController do
 
   def update(conn, %{"id" => id, "plan" => plan_params}) do
     plan = Plans.get_plan!(id)
+    analysis = Repo.get(Analysis, plan.analysis_id)
 
     case Plans.update_plan(plan, plan_params) do
       {:ok, plan} ->
         conn
         |> put_flash(:info, "Plan updated successfully.")
-        |> redirect(to: analysis_plan_path(conn, :show, plan))
+        |> redirect(to: analysis_path(conn, :show, analysis))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", plan: plan, changeset: changeset)
     end

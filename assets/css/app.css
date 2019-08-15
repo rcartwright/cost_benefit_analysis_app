@@ -3,6 +3,32 @@ html, body {
     height: 100%;
 }
 
+body {
+    background: #ebebeb;
+}
+
+.analysis-title {
+    display: flex;
+    background: aliceblue;
+    height: 200px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 3px 0px #c0c0c0;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.flex {
+    display: flex;
+}
+
+.underline {
+    border-bottom: 1px solid #efefef;
+    display: flex;
+    padding: 8px;
+}
+
 .nav-links {
     display: flex; 
 }
@@ -15,12 +41,22 @@ html, body {
     flex: 1 1 50%; 
     height: 100%;
     background: #fff;
+    box-shadow: 0 0 9px 0px #c0c0c0;
+    padding: 8px;
+    border-radius: 4px;
 }
 
 .cost-benefit-container {
-    border: 1px solid #e0e0e0; 
+    /*border: 1px solid #e0e0e0; */
     flex: 1 1 50%;
     height: 100%;
     padding: 12px;
     border-radius: 4px;
+}
+
+.cost-container, .benefit-container {
+    border-radius: 4px;
+    border: 1px solid #c0c0c0;
+    padding: 8px;
+    margin-bottom: 16px;
 }

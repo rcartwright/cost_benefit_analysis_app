@@ -1,5 +1,4 @@
 <h2>New Benefit</h2>
 
-<%= render "form.html", Map.put(assigns, :action, benefit_path(@conn, :create)) %>
+<%= render "form.html", Map.put(assigns, :action, plan_benefit_path(@conn, :create, @benefit)) %>
 
-<span><%= link "Back", to: benefit_path(@conn, :index) %></span>

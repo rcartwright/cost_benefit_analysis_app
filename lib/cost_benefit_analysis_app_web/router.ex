@@ -18,12 +18,12 @@ defmodule CostBenefitAnalysisAppWeb.Router do
 
     get "/", AnalysisController, :index
     resources "/analyses", AnalysisController do
-      resources "/plans", PlanController,  [:new, :create, :delete, :show, :edit]
+      resources "/plans", PlanController,  [:new, :create, :delete, :show, :edit, :update]
     end
     resources "/plans", PlanController do
       resources "/costs", CostController, [:new, :create, :delete]
+      resources "/benefits", BenefitController, [:new, :create, :delete]
     end
-    resources "/benefits", BenefitController
   end
 
   # Other scopes may use custom stacks.

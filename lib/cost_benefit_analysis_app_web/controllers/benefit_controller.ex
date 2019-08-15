@@ -3,18 +3,24 @@ defmodule CostBenefitAnalysisAppWeb.BenefitController do
 
   alias CostBenefitAnalysisApp.Benefits
   alias CostBenefitAnalysisApp.Benefits.Benefit
+  alias CostBenefitAnalysisApp.Analyses.Analysis
+  alias CostBenefitAnalysisApp.Repo
 
-  def new(conn, _params) do
+  def new(conn, %{"plan_id" => plan}) do
     changeset = Benefits.change_benefit(%Benefit{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, plan: plan)
   end
 
-  def create(conn, %{"benefit" => benefit_params}) do
-    case Benefits.create_benefit(benefit_params) do
+  def create(conn,%{"benefit" => benefit_params, "plan_id" => plan_id}) do
+    plan = Repo.get(Plan, plan_id)
+    analysis = Repo.get(Analysis, plan.analysis_id)
+    benefit_changeset = Ecto.build_assoc(plan, :benefits, name: benefit_params["name"])
+
+    case Benefits.create_benefit(benefit_changeset) do
       {:ok, benefit} ->
         conn
         |> put_flash(:info, "Benefit created successfully.")
-        |> redirect(to: benefit_path(conn, :show, benefit))
+        |> redirect(to: analysis_path(conn, :show, analysis))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -26,6 +32,6 @@ defmodule CostBenefitAnalysisAppWeb.BenefitController do
 
     conn
     |> put_flash(:info, "Benefit deleted successfully.")
-    |> redirect(to: benefit_path(conn, :index))
+    |> redirect(to: plan_benefit_path(conn, :index, benefit))
   end
 end
