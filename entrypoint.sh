@@ -27,3 +27,9 @@ exec mix phx.server
 # if that doesn't work, run `docker-compose up --build`
 # then run `docker-machine ip default` to get ip to go to
 # go to: http://[that ip]:4000
+192.168.99.100
+
+# run commands from docker in terminal by logging into docker
+# username: rachelcartwright
+# password: new good one
+# then run winpty docker container run -it costbenefitanalysisapp_phoenix bash

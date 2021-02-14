@@ -1,8 +1,6 @@
 # Use an official Elixir runtime as a parent image
 FROM elixir:latest
 
-#WORKDIR /app 
-RUN echo 'yoyoyoyoyo' 
 RUN echo $(ls)
 
 RUN apt-get update && \

@@ -10,15 +10,16 @@
   <%= for plan <- @analysis.plans do %>
     <div class="plan-container">
       <div class="underline">
-        <h2 style="padding-right: 8px"><%= plan.name %></h2>
-        <div class="nav-links">
-          <span><%= link "Edit", class: "btn btn-info btn-xs", to: analysis_plan_path(@conn, :edit, @analysis, plan) %></span>
-        </div>
+        <h2 style="padding-right: 8px">
+        <%= link plan.name, to: analysis_plan_path(@conn, :edit, @analysis, plan) %>
+        </h2>
       </div>
       <div class="cost-benefit-container">
         <div class="cost-container">
-          <h3>Costs</h3>
-          <span><%= link "New Cost", class: "btn btn-info btn-xs", to: plan_cost_path(@conn, :new, plan) %></span>
+          <div style="display: flex; justify-content: space-between; align-items: end">
+            <h3>Costs</h3>
+            <%= link "New Cost", class: "btn btn-info btn-sm", to: plan_cost_path(@conn, :new, plan) %>
+          </div>
           <ul>
           <%= for cost <- plan.costs do %>
             <li><%= cost.name %></li>
@@ -26,8 +27,10 @@
           </ul>
         </div>
         <div class="benefit-container">
-          <h3>Benefits</h3>
-          <span><%= link "New Benefit", class: "btn btn-info btn-xs", to: plan_benefit_path(@conn, :new, plan) %></span>
+          <div style="display: flex; justify-content: space-between; align-items: end">
+            <h3>Benefits</h3>
+            <%= link "New Benefit", class: "btn btn-info btn-sm", to: plan_benefit_path(@conn, :new, plan) %>
+          </div>
         </div>
       </div>
     </div>
