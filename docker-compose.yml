@@ -37,6 +37,8 @@ services:
     ports:
       # Mapping the port to make the Phoenix app accessible outside of the container
       - "4000:4000"
+    extra_hosts:
+      - "myapp:127.0.0.1"
     depends_on:
       # The db container needs to be started before we start this container
       - db

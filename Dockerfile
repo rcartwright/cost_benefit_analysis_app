@@ -1,12 +1,12 @@
 # Use an official Elixir runtime as a parent image
-FROM elixir:latest
+FROM elixir:1.11
 
 RUN echo $(ls)
 
 RUN apt-get update && \
   apt-get install -y apt-utils && \
   apt-get install -y postgresql-client && \
-  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
   apt-get install -y nodejs && \
   npm i -g nodemon
 
